@@ -1,29 +1,41 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Saved from "./pages/Saved";
+import Search from "./pages/Search";
+import Button from '@material-ui/core/Button';
 
-function App() {
+export default function App() {
+
   return (
     <Router>
       <div>
-        <Nav />
+          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Button>
+            <span>Search</span>
+          </Button>
+          </Link>
+          <Link to="/saved" style={{ textDecoration: 'none' }}>
+          <Button>
+            <span>Saved</span>
+          </Button>
+          </Link>
+      </div>
+
         <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
+          <Route exact path="/">
+            <Search/>
           </Route>
-          <Route exact path="/books/:id">
-            <Detail />
-          </Route>
-          <Route>
-            <NoMatch />
+          <Route exact path="/saved">
+            <Saved/>
           </Route>
         </Switch>
-      </div>
+
     </Router>
   );
 }
 
-export default App;
