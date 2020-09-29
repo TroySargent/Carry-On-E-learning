@@ -3,34 +3,26 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
-import Button from '@material-ui/core/Button';
+import Navbar from "./components/Navbar"
 
 export default function App() {
 
   return (
     <Router>
-      <div>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-          <Button>
-            <span>Search</span>
-          </Button>
-          </Link>
-          <Link to="/saved" style={{ textDecoration: 'none' }}>
-          <Button>
-            <span>Saved</span>
-          </Button>
-          </Link>
-      </div>
 
         <Switch>
-          <Route exact path="/">
+          <Route path="/">
+          <div className="g-signin2" data-onsuccess="onSignIn"></div>
+          </Route>
+          <Route path="/search">
+            <Navbar/>
             <Search/>
           </Route>
-          <Route exact path="/saved">
+          <Route path="/saved">
+            <Navbar/>
             <Saved/>
           </Route>
         </Switch>
