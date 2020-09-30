@@ -1,27 +1,16 @@
-const path = require("path");
-const router = require("express").Router();
-const apiRoutes = require("./api");
-const authRoutes = require("./auth");
-// API Routes
-router.use("/api", apiRoutes);
-router.use("/auth", authRoutes);
-
-// If no API routes are hit, send the React app
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
-
+const express = require("express");
+const router = express.Router();
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//login/landing
-
-//route get/
-router.get("/", ensureGuest, (req, res) => {
-  res.redirect("/");
-});
-
-router.get("/", ensureAuth, async (req, res) => {
-  res.redirect("/search");
-});
+//developmet routes
+if (process.env.NODE_ENV === "development") {
+  router.get("/", ensureGuest, (req, res) => {
+    res.redirect("http://localhost:3000/");
+  });
+  
+  router.get("/search", ensureAuth, async (req, res) => {
+    res.redirect("http://localhost:3000/search");
+  });
+}
 
 module.exports = router;

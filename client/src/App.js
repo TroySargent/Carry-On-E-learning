@@ -14,8 +14,9 @@ export default function App() {
     <Router>
 
         <Switch>
-          <Route path="/">
-          <div className="g-signin2" data-onsuccess="onSignIn"></div>
+          <Route exact path="/">
+          <div className="section"><a href="/auth/google" className="btn red darken-1">
+        <i className="fab fa-google left"></i>Login With Google</a></div>
           </Route>
           <Route path="/search">
             <Navbar/>
