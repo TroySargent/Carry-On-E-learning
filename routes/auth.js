@@ -11,10 +11,10 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "/test",
+    failureRedirect: "/",
   }),
   (req, res) => {
-      console.log("Hello world")
+    //res.redirect("http://localhost:3000/saved");
     res.redirect("/search");
   }
 );

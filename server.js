@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const passport = require("passport");
 const session = require("express-session");
 const connectDB = require("./config/db");
-const routes = require("./routes");
+
 
 //Loading config
 dotenv.config({ path: "./config/config.env" });
@@ -44,7 +44,9 @@ app.use(function (req, res, next) {
 });
 
 // Add routes, both API and view
-app.use(routes);
+app.use("/", require("./routes/index"));
+app.use("/auth", require("./routes/auth"));
+app.use("/api/books", require("./routes/books"));
 
 
 const PORT = process.env.PORT || 3001;

@@ -1,5 +1,6 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const db = require("../models");
+// const mongoose = require("mongoose");
+const User = require("../models/User");
 
 module.exports = function (passport) {
   passport.use(
@@ -18,13 +19,12 @@ module.exports = function (passport) {
           image: profile.photos[0].value,
         };
         try {
-          let user = await db.User.findOne({ googleId: profile.id });
-          console.log("hello")
+          let user = await User.findOne({ googleId: profile.id });
+
           if (user) {
             done(null, user);
           } else {
-          console.log("hello")
-            user = await db.User.create(newUser);
+            user = await User.create(newUser);
             done(null, user);
           }
         } catch (err) {
