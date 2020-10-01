@@ -1,29 +1,34 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Saved from "./pages/Saved";
+import Search from "./pages/Search";
+import Navbar from "./components/Navbar"
 
-function App() {
+export default function App() {
+
   return (
     <Router>
-      <div>
-        <Nav />
+
         <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
+          <Route exact path="/">
+          <div className="section"><a href="/auth/google" className="btn red darken-1">
+        <i className="fab fa-google left"></i>Login With Google</a></div>
           </Route>
-          <Route exact path="/books/:id">
-            <Detail />
+          <Route path="/search">
+            <Navbar/>
+            <Search/>
           </Route>
-          <Route>
-            <NoMatch />
+          <Route path="/saved">
+            <Navbar/>
+            <Saved/>
           </Route>
         </Switch>
-      </div>
+
     </Router>
   );
 }
 
-export default App;
