@@ -8,6 +8,7 @@ import Saved from "./pages/Saved";
 import Search from "./pages/Search";
 import Navbar from "./components/Navbar"
 import Dashboard from "./pages/Dashboard"
+import Login from './pages/login';
 
 export default function App() {
 
@@ -16,9 +17,8 @@ export default function App() {
 
         <Switch>
           <Route exact path="/">
-          <div className="section"><a href="/auth/google" className="btn red darken-1">
-        <i className="fab fa-google left"></i>Login With Google</a></div>
-          </Route>
+        <Login/>
+        </Route>
           <Route path="/dashboard">
             <Dashboard/>
           </Route>
