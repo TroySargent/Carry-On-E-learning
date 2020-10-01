@@ -7,9 +7,6 @@ export default function VideoSearch() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]); 
   
-    // Note: the empty deps array [] means
-    // this useEffect will run once
-    // similar to componentDidMount()
     useEffect(() => {
       fetch("/videoSearch")
         .then(res => res.json())
