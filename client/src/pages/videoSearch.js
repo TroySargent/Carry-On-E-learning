@@ -2,16 +2,16 @@ import React, {useState, useEffect} from "react";
 
 
 
-export default function SavedSearch() {
+export default function VideoSearch() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]); 
   
     // Note: the empty deps array [] means
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-      fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=skateboarding%20dog&type=video&videoDefinition=high&key=AIzaSyBbhfp3i26VJfbzmO9HH-3WzKnqmntJqSw")
+      fetch("/videoSearch")
         .then(res => res.json())
         .then(
           (result) => {
