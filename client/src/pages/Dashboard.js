@@ -18,10 +18,10 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from '../components/Dashbord/listItem';
-import Chart from '../components/Dashbord/Chart';
-import Deposits from '../components/Dashbord/Deposits';
-import Orders from '../components/Dashbord/Orders';
+import { mainListItems, secondaryListItems } from "../components/Dashboard/listItem/listItems";
+import Chart from "../components/Dashboard/Chart/Chart";
+import Deposits from "../components/Dashboard/Deposits/Deposits";
+import Orders from "../components/Dashboard/Orders/Orders";
 
 function Copyright() {
   return (
@@ -145,6 +145,7 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
+          {/* <Avatar className={classes.orange}>N</Avatar> */}
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
