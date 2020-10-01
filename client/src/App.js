@@ -17,6 +17,8 @@ export default function App() {
           <Route exact path="/">
           <div className="section"><a href="/auth/google" className="btn red darken-1">
         <i className="fab fa-google left"></i>Login With Google</a></div>
+          <div className="section"><a href="/auth/logout" className="btn red darken-1">
+        <i className="fab fa-google left"></i>Logout</a></div>
           </Route>
           <Route path="/search">
             <Navbar/>

@@ -14,7 +14,7 @@ router.get(
     failureRedirect: "/",
   }),
   (req, res) => {
-    //res.redirect("http://localhost:3000/saved");
+    console.log(req)
     res.redirect("/search");
   }
 );
