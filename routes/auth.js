@@ -15,7 +15,7 @@ router.get(
   }),
   (req, res) => {
     //res.redirect("http://localhost:3000/saved");
-    res.redirect("/search");
+    res.redirect("/dashboard");
   }
 );
 

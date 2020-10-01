@@ -8,8 +8,8 @@ if (process.env.NODE_ENV === "development") {
     res.redirect("http://localhost:3000/");
   });
   
-  router.get("/search", ensureAuth, async (req, res) => {
-    res.redirect("http://localhost:3000/search");
+  router.get("/dashboard", ensureAuth, async (req, res) => {
+    res.redirect("http://localhost:3000/dashboard");
   });
 }
 
