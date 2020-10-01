@@ -12,5 +12,8 @@ if (process.env.NODE_ENV === "development") {
     res.redirect("http://localhost:3000/dashboard");
   });
 }
+router.get("/search", ensureAuth, async (req, res) => {
+  res.redirect("http://localhost:3000/search");
+});
 
 module.exports = router;
