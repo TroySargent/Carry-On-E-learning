@@ -17,7 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from "../components/Dashboard/listItem/listItems";
 import Chart from "../components/Dashboard/Chart/Chart";
 import Deposits from "../components/Dashboard/Deposits/Deposits";
@@ -28,7 +28,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/"> 
-        Your Website
+        Carry On 
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    backgroundColor: theme.palette.warning.main
   },
   toolbarIcon: {
     display: 'flex',
@@ -145,10 +146,9 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
-          {/* <Avatar className={classes.orange}>N</Avatar> */}
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+          <IconButton color="inherit" href="/auth/google">
+            <Badge color="secondary">
+              <ExitToAppIcon />
             </Badge>
           </IconButton>
         </Toolbar>
@@ -180,13 +180,13 @@ export default function Dashboard() {
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
+            {/* Overdue Tasks */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+            {/* Tasks List */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Orders />
