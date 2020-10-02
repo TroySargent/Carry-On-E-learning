@@ -9,7 +9,7 @@ import Search from "./pages/Search";
 import Navbar from "./components/Navbar"
 import Dashboard from "./pages/Dashboard"
 import Login from './pages/login';
-
+import VideoSearch from './pages/videoSearch'
 export default function App() {
 
   return (
@@ -29,6 +29,10 @@ export default function App() {
           <Route path="/saved">
             <Navbar/>
             <Saved/>
+          </Route>
+          <Route path="/videoSearch">
+            <Navbar/>
+            <VideoSearch/>
           </Route>
         </Switch>
 
