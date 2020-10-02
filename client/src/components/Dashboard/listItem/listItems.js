@@ -7,7 +7,9 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import InputIcon from '@material-ui/icons/Input';
 import SearchIcon from '@material-ui/icons/Search';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
+import LockIcon from '@material-ui/icons/Lock';
+import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import {Link} from "react-router-dom";
 
 export const mainListItems = (
@@ -16,32 +18,32 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText><Link to="/dashboard" >Dashboard</Link></ListItemText>
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/dashboard" >Dashboard</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <InputIcon />
+        <YoutubeSearchedForIcon />
       </ListItemIcon>
-      <ListItemText><Link to="/videos" >Search Videos</Link></ListItemText>
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/videos" >Search Videos</Link></ListItemText>
     </ListItem>
     <ListItem button >
       <ListItemIcon>
         <SearchIcon />
       </ListItemIcon>
-      <ListItemText><Link to="/books" >Search Books</Link></ListItemText>
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/books" >Search Books</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <FormatListNumberedIcon />
       </ListItemIcon>
-      <ListItemText primary="All Tasks" />
+      <ListItemText primary="View All Tasks" />
     </ListItem>
-    {/* <ListItem button>
+    <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <LockIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem> */}
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/" >Log Out</Link></ListItemText>
+    </ListItem>
   </div>
 );
 
@@ -50,21 +52,15 @@ export const secondaryListItems = (
     <ListSubheader inset>Saved Resources</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <BookmarksIcon />
       </ListItemIcon>
-      <ListItemText><Link to="/saved" >Saved</Link></ListItemText>
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/saved" >Saved</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <BookmarksIcon />
       </ListItemIcon>
       <ListItemText primary="Saved Videos" />
     </ListItem>
-    {/* <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem> */}
   </div>
 );
