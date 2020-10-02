@@ -47,6 +47,7 @@ app.use(function (req, res, next) {
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/api/books", require("./routes/books"));
+app.use("/api/videos", require("./routes/video"));
 
 
 const PORT = process.env.PORT || 3001;

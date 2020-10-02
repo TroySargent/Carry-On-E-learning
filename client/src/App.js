@@ -5,8 +5,11 @@ import {
   Route,
 } from "react-router-dom";
 import Saved from "./pages/Saved";
-import Search from "./pages/Search";
+import SearchBooks from "./pages/SearchBooks";
+import SearchVideos from "./pages/SearchVideos";
 import Navbar from "./components/Navbar"
+import Dashboard from "./pages/Dashboard"
+import Login from './pages/Login';
 
 export default function App() {
 
@@ -15,14 +18,18 @@ export default function App() {
 
         <Switch>
           <Route exact path="/">
-          <div className="section"><a href="/auth/google" className="btn red darken-1">
-        <i className="fab fa-google left"></i>Login With Google</a></div>
-          <div className="section"><a href="/auth/logout" className="btn red darken-1">
-        <i className="fab fa-google left"></i>Logout</a></div>
+        <Login/>
+        </Route>
+          <Route path="/dashboard">
+            <Dashboard/>
           </Route>
-          <Route path="/search">
+          <Route path="/books">
             <Navbar/>
-            <Search/>
+            <SearchBooks/>
+          </Route>
+          <Route path="/videos">
+            <Navbar/>
+            <SearchVideos/>
           </Route>
           <Route path="/saved">
             <Navbar/>
