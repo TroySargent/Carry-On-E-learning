@@ -5,9 +5,14 @@ import {Link} from 'react-router-dom';
 export default function Navbar() {
     return(
         <div>
-        <Link to="/search" style={{ textDecoration: 'none' }}>
+        <Link to="/books" style={{ textDecoration: 'none' }}>
         <Button>
-          <span>Search</span>
+          <span>Search Books</span>
+        </Button>
+        </Link>
+        <Link to="/videos" style={{ textDecoration: 'none' }}>
+        <Button>
+          <span>Search Videos</span>
         </Button>
         </Link>
         <Link to="/saved" style={{ textDecoration: 'none' }}>

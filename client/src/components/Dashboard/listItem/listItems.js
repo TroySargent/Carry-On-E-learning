@@ -10,7 +10,7 @@ import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
 import LockIcon from '@material-ui/icons/Lock';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
-import Link from '@material-ui/core/Link';
+import {Link} from "react-router-dom";
 
 export const mainListItems = (
   <div>
@@ -18,25 +18,19 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <InputIcon />
-      </ListItemIcon>
-      <ListItemText primary="Input Tasks" />
-    </ListItem>
-    <ListItem button >
-      <ListItemIcon>
-        <SearchIcon />
-      </ListItemIcon>
-      <ListItemText primary="Search Books"  />
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/dashboard" >Dashboard</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <YoutubeSearchedForIcon />
       </ListItemIcon>
-      <ListItemText primary="Search Videos" />
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/videos" >Search Videos</Link></ListItemText>
+    </ListItem>
+    <ListItem button >
+      <ListItemIcon>
+        <SearchIcon />
+      </ListItemIcon>
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/books" >Search Books</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
@@ -48,8 +42,7 @@ export const mainListItems = (
       <ListItemIcon>
         <LockIcon />
       </ListItemIcon>
-      <ListItemText primary="Log Out" />
-      <Link href="http://localhost:3000/"></Link>
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/" >Log Out</Link></ListItemText>
     </ListItem>
   </div>
 );
@@ -61,7 +54,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <BookmarksIcon />
       </ListItemIcon>
-      <ListItemText primary="Saved Books" />
+      <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/saved" >Saved</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>

@@ -5,7 +5,8 @@ import {
   Route,
 } from "react-router-dom";
 import Saved from "./pages/Saved";
-import Search from "./pages/Search";
+import SearchBooks from "./pages/SearchBooks";
+import SearchVideos from "./pages/SearchVideos";
 import Navbar from "./components/Navbar"
 import Dashboard from "./pages/Dashboard"
 import Login from './pages/login';
@@ -22,9 +23,13 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard/>
           </Route>
-          <Route path="/search">
+          <Route path="/books">
             <Navbar/>
-            <Search/>
+            <SearchBooks/>
+          </Route>
+          <Route path="/videos">
+            <Navbar/>
+            <SearchVideos/>
           </Route>
           <Route path="/saved">
             <Navbar/>
