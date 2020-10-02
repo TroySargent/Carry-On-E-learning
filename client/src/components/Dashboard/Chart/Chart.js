@@ -7,25 +7,26 @@ import {
   ArgumentAxis,
   ValueAxis,
   Chart,
-  LineSeries,
+  BarSeries,
 } from '@devexpress/dx-react-chart-material-ui';
 
 const data = [
-  { argument: 1, value: 10 },
-  { argument: 2, value: 20 },
-  { argument: 3, value: 30 },
+  { argument: 1, value: 3 },
+  { argument: 2, value: 6 },
+  { argument: 3, value: 4 },
+  { argument: 4, value: 2 },
 ];
 
 export default () => { return (
   <Paper>
-    <Title>Today</Title>
+    <Title>Overview</Title>
     <Chart
       data={data}
     >
       <ArgumentAxis />
       <ValueAxis />
 
-      <LineSeries valueField="value" argumentField="argument" />
+      <BarSeries valueField="value" argumentField="argument" />
     </Chart>
   </Paper>
 )}; 
