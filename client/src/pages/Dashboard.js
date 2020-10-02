@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from "../components/Dashboard/listI
 import Chart from "../components/Dashboard/Chart/Chart";
 import Deposits from "../components/Dashboard/Deposits/Deposits";
 import Orders from "../components/Dashboard/Orders/Orders";
+import { yellow } from '@material-ui/core/colors';
 
 function Copyright() {
   return (
@@ -44,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    color: yellow
   },
   toolbarIcon: {
     display: 'flex',
@@ -179,13 +181,13 @@ export default function Dashboard() {
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
+            {/* Overdue Tasks */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+            {/* Tasks List */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Orders />
