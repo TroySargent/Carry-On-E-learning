@@ -22,7 +22,6 @@ import { mainListItems, secondaryListItems } from "../components/Dashboard/listI
 import Chart from "../components/Dashboard/Chart/Chart";
 import Deposits from "../components/Dashboard/Deposits/Deposits";
 import Orders from "../components/Dashboard/Orders/Orders";
-import { yellow } from '@material-ui/core/colors';
 
 function Copyright() {
   return (
@@ -45,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
-    color: yellow
+    backgroundColor: theme.palette.warning.main
   },
   toolbarIcon: {
     display: 'flex',
