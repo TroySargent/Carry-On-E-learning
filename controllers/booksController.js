@@ -3,9 +3,12 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
-    db.Book
-      .find(req.query)
-      .sort({ date: -1 })
+    db.User
+      .findOne({googleId: req.user.googleId})
+      .populate("books")
+      .populate("completedBookCount")
+      .populate("overdueBooks")
+      .populate("activeBooks")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -16,10 +19,18 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Book
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    db.Book.create(req.body)
+    .then(function(dbBook) {
+      return db.User.findOneAndUpdate({googleId: req.user.googleId}, { $push: { books: dbBook._id } }, { new: true });
+    })
+    .then(function(dbUser) {
+      // If the Library was updated successfully, send it back to the client
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
   },
   update: function(req, res) {
     db.Book
