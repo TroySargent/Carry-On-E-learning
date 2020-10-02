@@ -6,7 +6,9 @@ module.exports = {
     db.User
       .findOne({googleId: req.user.googleId})
       .populate("books")
-      .populate("completedBooks")
+      .populate("completedBookCount")
+      .populate("overdueBooks")
+      .populate("activeBooks")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

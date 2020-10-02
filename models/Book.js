@@ -12,7 +12,7 @@ const bookSchema = new Schema({
 }, { toJSON: { virtuals: true } });
 
 bookSchema.virtual("overdue").get(function () {
-  return (this.targetDate < Date.now())
+  return (this.targetDate < Date.now()) // if target date is less than now, book is not overdue
   }
 );
 

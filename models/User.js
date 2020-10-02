@@ -29,12 +29,26 @@ const UserSchema = new mongoose.Schema({
   }]
 }, { toJSON: { virtuals: true } });
 
-UserSchema.virtual('completedBooks',{
+UserSchema.virtual('completedBookCount',{
   ref:"Book",
   localField: "books",
   foreignField:"_id",
   match: { completed: true},
   count: true
+})
+
+UserSchema.virtual('overdueBooks',{
+  ref:"Book",
+  localField: "books",
+  foreignField:"_id",
+  match: { targetDate : {$lt : Date.now()}},
+})
+
+UserSchema.virtual('activeBooks',{
+  ref:"Book",
+  localField: "books",
+  foreignField:"_id",
+  match: { targetDate : {$gt : Date.now()}},
 })
 
 const User = mongoose.model("User", UserSchema);
