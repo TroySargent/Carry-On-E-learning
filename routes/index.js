@@ -14,9 +14,12 @@ if (process.env.NODE_ENV === "development") {
   });
 } else {
   
-  // Handles any requests that don't match the ones above
-  router.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname,'/client/build/index.html'));
+  router.get("/", ensureGuest, (req, res) => {
+    res.redirect("/");
+  });
+  
+  router.get("/dashboard", ensureAuth, async (req, res) => {
+    res.redirect("/dashboard");
   });
 
 }
