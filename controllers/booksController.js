@@ -6,7 +6,7 @@ module.exports = {
     db.User
       .findOne({googleId: req.user.googleId})
       .populate("books")
-      .sort({ date: -1 })
+      .populate("completedBooks")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

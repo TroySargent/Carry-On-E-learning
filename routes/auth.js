@@ -14,7 +14,6 @@ router.get(
     failureRedirect: "/",
   }),
   (req, res) => {
-    console.log(req)
     res.redirect("/search");
   }
 );

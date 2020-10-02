@@ -15,7 +15,6 @@ const UserSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: true,
   },
   image: {
     type: String,
@@ -28,7 +27,15 @@ const UserSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Book"
   }]
-});
+}, { toJSON: { virtuals: true } });
+
+UserSchema.virtual('completedBooks',{
+  ref:"Book",
+  localField: "books",
+  foreignField:"_id",
+  match: { completed: true},
+  count: true
+})
 
 const User = mongoose.model("User", UserSchema);
 

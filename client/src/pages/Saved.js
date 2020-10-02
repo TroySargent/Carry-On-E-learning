@@ -15,7 +15,7 @@ export default function App() {
     () => {
       async function fetchData() {
         const response = await API.getSaved();
-        console.log(response.books)
+        console.log(response)
         setBookState({ books: response.books });
       }
       fetchData()
