@@ -7,11 +7,8 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import InputIcon from '@material-ui/icons/Input';
 import SearchIcon from '@material-ui/icons/Search';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-// import PeopleIcon from '@material-ui/icons/People';
-// import BarChartIcon from '@material-ui/icons/BarChart';
-// import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import {Link} from "react-router-dom";
 
 export const mainListItems = (
   <div>
@@ -19,19 +16,19 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText><Link to="/dashboard" >Dashboard</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <InputIcon />
       </ListItemIcon>
-      <ListItemText primary="Input Tasks" />
+      <ListItemText><Link to="/videos" >Search Videos</Link></ListItemText>
     </ListItem>
     <ListItem button >
       <ListItemIcon>
         <SearchIcon />
       </ListItemIcon>
-      <ListItemText primary="Search"  />
+      <ListItemText><Link to="/books" >Search Books</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
@@ -55,7 +52,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Saved Books" />
+      <ListItemText><Link to="/saved" >Saved</Link></ListItemText>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
