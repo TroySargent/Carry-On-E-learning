@@ -18,6 +18,9 @@ connectDB();
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"))
+}
 
 //logging with morgan
 if (process.env.NODE_ENV === "development") {
@@ -48,7 +51,9 @@ app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/api/books", require("./routes/books"));
 app.use("/api/videos", require("./routes/video"));
-
+app.use("*", (req, res) => {
+  res.send("client/build/index.html")
+})
 
 const PORT = process.env.PORT || 3001;
 
