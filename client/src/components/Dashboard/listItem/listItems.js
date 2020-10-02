@@ -7,11 +7,10 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import InputIcon from '@material-ui/icons/Input';
 import SearchIcon from '@material-ui/icons/Search';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-// import PeopleIcon from '@material-ui/icons/People';
-// import BarChartIcon from '@material-ui/icons/BarChart';
-// import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
+import LockIcon from '@material-ui/icons/Lock';
+import BookmarksIcon from '@material-ui/icons/Bookmarks';
+import Link from '@material-ui/core/Link';
 
 export const mainListItems = (
   <div>
@@ -31,20 +30,27 @@ export const mainListItems = (
       <ListItemIcon>
         <SearchIcon />
       </ListItemIcon>
-      <ListItemText primary="Search"  />
+      <ListItemText primary="Search Books"  />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <YoutubeSearchedForIcon />
+      </ListItemIcon>
+      <ListItemText primary="Search Videos" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <FormatListNumberedIcon />
       </ListItemIcon>
-      <ListItemText primary="All Tasks" />
+      <ListItemText primary="View All Tasks" />
     </ListItem>
-    {/* <ListItem button>
+    <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <LockIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem> */}
+      <ListItemText primary="Log Out" />
+      <Link href="http://localhost:3000/"></Link>
+    </ListItem>
   </div>
 );
 
@@ -53,21 +59,15 @@ export const secondaryListItems = (
     <ListSubheader inset>Saved Resources</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <BookmarksIcon />
       </ListItemIcon>
       <ListItemText primary="Saved Books" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <BookmarksIcon />
       </ListItemIcon>
       <ListItemText primary="Saved Videos" />
     </ListItem>
-    {/* <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem> */}
   </div>
 );
