@@ -19,7 +19,7 @@ export default function SimpleTable(props) {
   const handleClick = e => {
     let index = e.target.getAttribute("data-id");
     let {title, authors, description, imageLinks: {smallThumbnail}, previewLink} = props.books[index].volumeInfo;
-    API.saveItem(
+    API.saveBook(
       {title, 
       authors, 
       description, 

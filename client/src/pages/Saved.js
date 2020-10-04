@@ -14,7 +14,7 @@ export default function App() {
   useEffect(
     () => {
       async function fetchData() {
-        const response = await API.getSaved();
+        const response = await API.getSavedBooks();
         console.log(response)
         setBookState({ books: response.books });
       }

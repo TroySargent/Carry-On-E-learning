@@ -143,8 +143,8 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+          <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
+            Carry On
           </Typography>
           <IconButton color="inherit" href="/auth/google">
             <Badge color="secondary">
