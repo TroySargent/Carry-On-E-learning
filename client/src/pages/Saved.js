@@ -7,16 +7,19 @@ import Typography from '@material-ui/core/Typography';
 import API from '../utils/API';
 
 export default function App() {
-  const [bookState, setBookState] = useState({
+  const [state, setState] = useState({
     books: [],
+    videos: []
   });
 
   useEffect(
     () => {
       async function fetchData() {
-        const response = await API.getSavedBooks();
-        console.log(response)
-        setBookState({ books: response.books });
+        const bookResponse = await API.getSavedBooks();
+        const videoResponse = await API.getSavedVideos();
+        console.log(videoResponse)
+        setState({videos: videoResponse.videos, books: bookResponse.books });
+
       }
       fetchData()
     }
@@ -34,7 +37,9 @@ export default function App() {
       </AppBar>
     <Container>
       <SavedTable
-      books={bookState.books}>
+      books={state.books}
+      videos={state.videos}
+      >
       </SavedTable>
     </Container>
     </>
