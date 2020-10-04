@@ -25,8 +25,8 @@ export default function App() {
 
   return (
     <>
-    <AppBar position="static">
-        <Toolbar style={{"margin":"0 auto"}}>
+    <AppBar position="static" style={{"background-color":"orange"}}>
+        <Toolbar style={{"margin":"0 auto", }}>
           <Typography variant="h6" noWrap>
             Saved
           </Typography>

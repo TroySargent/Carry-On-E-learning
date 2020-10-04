@@ -10,9 +10,9 @@ export default function Navbar() {
           <span>Dashboard</span>
         </Button>
         </Link>
-        <Link to="/videos" style={{ textDecoration: 'none' }}>
+        <Link to="/books" style={{ textDecoration: 'none' }}>
         <Button>
-          <span>Search Videos</span>
+          <span>Search Books</span>
         </Button>
         </Link>
         <Link to="/videos" style={{ textDecoration: 'none' }}>
