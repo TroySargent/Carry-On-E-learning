@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import BookTable from '../components/SavedTable';
+import BookTable from '../components/BookTable';
 import Container from '@material-ui/core/Container';
 import Search from '../components/Search';
 import useDebounce from "../utils/Debounce";
