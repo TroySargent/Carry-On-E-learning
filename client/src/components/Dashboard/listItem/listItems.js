@@ -56,11 +56,5 @@ export const secondaryListItems = (
       </ListItemIcon>
       <ListItemText><Link style={{textDecoration: "none", color: "black"}} to="/saved" >Saved</Link></ListItemText>
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BookmarksIcon />
-      </ListItemIcon>
-      <ListItemText primary="Saved Videos" />
-    </ListItem>
   </div>
 );

@@ -5,6 +5,7 @@ module.exports = {
   findAll: function(req, res) {
     db.User
       .findOne({googleId: req.user.googleId})
+      .populate("videos")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -16,8 +17,8 @@ module.exports = {
   },
   create: function(req, res) {
     db.Video.create(req.body)
-    .then(function(dbBook) {
-      return db.User.findOneAndUpdate({googleId: req.user.googleId}, { $push: { books: dbBook._id } }, { new: true });
+    .then(function(dbVideo) {
+      return db.User.findOneAndUpdate({googleId: req.user.googleId}, { $push: { videos: dbVideo._id } }, { new: true });
     })
     .then(function(dbUser) {
       // If the Library was updated successfully, send it back to the client

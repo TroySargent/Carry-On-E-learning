@@ -26,7 +26,12 @@ const UserSchema = new mongoose.Schema({
   books: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Book"
+  }],
+  videos: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Video"
   }]
+
 }, { toJSON: { virtuals: true } });
 
 UserSchema.virtual('completedBookCount',{

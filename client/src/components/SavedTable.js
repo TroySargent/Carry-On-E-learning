@@ -22,7 +22,7 @@ export default function SimpleTable(props) {
   const classes = useStyles();
 
   return (
-
+    <>
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -61,5 +61,44 @@ export default function SimpleTable(props) {
       </Table>
     </TableContainer>
 
+    <TableContainer component={Paper}>
+    <Table 
+    className={classes.table} 
+    aria-label="simple table"
+    >
+      <TableHead>
+        <TableRow>
+          <TableCell align="center">Title</TableCell>
+          <TableCell align="center">Channel</TableCell>
+          <TableCell align="center">Description</TableCell>
+          <TableCell align="center">Thumbnail</TableCell>
+          <TableCell align="center"></TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+      {props.videos.length > 0 ? 
+        props.videos.map((video, index) => {
+          return (
+            <TableRow key={index} data-id={index}>
+            <TableCell component="th" scope="row" align="center">{video.title}</TableCell>
+            <TableCell align="center">{video.channelTitle}</TableCell>
+            <TableCell align="center">{video.description}</TableCell>
+            <TableCell align="center"><img src={video.url} alt=""/></TableCell>
+            <TableCell align="center"><button data-id={index} onClick={handleClick}>Delete</button></TableCell>
+            </TableRow>
+            )
+          }) :  <TableRow>
+          <TableCell component="th" scope="row"></TableCell>
+          <TableCell></TableCell>
+          <TableCell></TableCell>
+          <TableCell></TableCell>
+          <TableCell></TableCell>
+          </TableRow>
+          
+        } 
+      </TableBody>
+    </Table>
+    </TableContainer>
+    </>
   );
 }
