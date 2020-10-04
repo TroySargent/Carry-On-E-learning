@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import SearchTable from '../components/SearchTable';
+import BookTable from '../components/SavedTable';
 import Container from '@material-ui/core/Container';
 import Search from '../components/Search';
 import useDebounce from "../utils/Debounce";
@@ -40,9 +40,9 @@ export default function App() {
     <>
     <Search handleChange={handleChange}/>
     <Container>
-      <SearchTable
+      <BookTable
       books={bookState.searchedBooks.length ? bookState.searchedBooks: bookState.initialBooks}>
-      </SearchTable>
+      </BookTable>
     </Container>
     </>
   );

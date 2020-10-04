@@ -1,37 +1,51 @@
-import React, {useState, useEffect} from "react";
-
-
+import React, {useState, useEffect} from 'react';
+import VideoTable from '../components/VideoTable';
+import Container from '@material-ui/core/Container';
+import Search from '../components/Search';
+import useDebounce from "../utils/Debounce";
 
 export default function VideoSearch() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]); 
+    const [videoState, setVideoState] = useState({
+      initialVideos: [],
+      searchedVideos: []
+    });
+
+    const [searchTerm, setSearchTerm] = useState('');
 
     const fetchData = async (query) => {
-      let {items} = await fetch("api/videos/search", {
+      let data = await fetch(`api/videos/search/q=${query}`, {
           method: 'GET'
       }).then(response => response.json())
-      setItems(items);
+      console.log(data)
+      setVideoState({...videoState, searchedVideos : data.items});
     };
 
-    useEffect(() => {
-      try {
-        fetchData()
+    const debouncedSearchTerm = useDebounce(searchTerm);
+
+    useEffect(
+      () => {
+        if (debouncedSearchTerm) {
+          fetchData(debouncedSearchTerm);
+        } else {
+          setVideoState({...videoState, searchedVideos : []});
+        }
       }
-      catch {
-        setIsLoaded(true);
-        setError(error);
-      }
-    }, [])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      ,[debouncedSearchTerm]);
+
+      const handleChange = e => {
+        setSearchTerm(e.target.value);
+      };
   
       return (
-        <ul>
-          {items.map(item => (
-            <li key={item.id.videoId}>
-              {item.snippet.title}
-            </li>
-          ))}
-        </ul>
+        <>
+        <Search handleChange={handleChange}/>
+        <Container>
+          <VideoTable
+          videos={videoState.searchedVideos.length ? videoState.searchedVideos: videoState.initialVideos}>
+          </VideoTable>
+        </Container>
+        </>
       );
   }
 
