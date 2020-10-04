@@ -5,6 +5,11 @@ import {Link} from 'react-router-dom';
 export default function Navbar() {
     return(
         <div>
+        <Link to="/dashboard" style={{ textDecoration: 'none' }}>
+        <Button>
+          <span>Dashboard</span>
+        </Button>
+        </Link>
         <Link to="/books" style={{ textDecoration: 'none' }}>
         <Button>
           <span>Search Books</span>
