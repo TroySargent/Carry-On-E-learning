@@ -8,10 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from "../Title/Title";
 
-// Generate Order Data
-// function createData(id, date, name, shipTo, paymentMethod, amount) {
-//   return { id, date, name, shipTo, paymentMethod, amount };
-// }
 function createData(id, startDate, tasks, overview, dueDate) {
   return { id, startDate, tasks, overview, dueDate };
 }
