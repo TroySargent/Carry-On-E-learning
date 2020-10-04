@@ -1,3 +1,4 @@
+const path = require("path")
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
@@ -18,6 +19,9 @@ connectDB();
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, 'client/build')))
+}
 
 //logging with morgan
 if (process.env.NODE_ENV === "development") {
@@ -48,7 +52,10 @@ app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/api/books", require("./routes/books"));
 app.use("/api/videos", require("./routes/video"));
-
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname,'client/build/index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
 
