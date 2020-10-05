@@ -17,17 +17,17 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { mainListItems, secondaryListItems } from "../components/Dashboard/listItem/listItems";
 import Chart from "../components/Dashboard/Chart/Chart";
 import Deposits from "../components/Dashboard/Deposits/Deposits";
 import Orders from "../components/Dashboard/Orders/Orders";
+import LocalMallIcon from '@material-ui/icons/LocalMall';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/"> 
+      <Link color="inherit" href="#"> 
         Carry On 
       </Link>{' '}
       {new Date().getFullYear()}
@@ -146,9 +146,9 @@ export default function Dashboard() {
           <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
             Carry On
           </Typography>
-          <IconButton color="inherit" href="/auth/google">
+          <IconButton color="inherit" href="#">
             <Badge color="secondary">
-              <ExitToAppIcon />
+              <LocalMallIcon />
             </Badge>
           </IconButton>
         </Toolbar>
