@@ -22,11 +22,8 @@ export default function Deposits() {
       <Typography component="p" variant="h4">
         3
       </Typography>
-      {/* <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 March, 2019
-      </Typography> */}
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
+        <Link textDecoration="none" color="black" href="#" onClick={preventDefault}>
           View Overdue Tasks
         </Link>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import API from '../utils/API';
 
 const useStyles = makeStyles({
   table: {
@@ -14,7 +15,24 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleTable(props) {
+export default function SimpleTable() {
+  const [state, setState] = useState({
+    books: [],
+    videos: []
+  });
+
+  useEffect(
+    () => {
+      async function fetchData() {
+        const bookResponse = await API.getSavedBooks();
+        const videoResponse = await API.getSavedVideos();
+        console.log(videoResponse)
+        setState({videos: videoResponse.videos, books: bookResponse.books });
+
+      }
+      fetchData()
+    }
+  ,[]);
   const handleClick = e => {
     console.log(e.target.getAttribute("data-id"))
   }
@@ -36,8 +54,8 @@ export default function SimpleTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-        {props.books.length > 0 ? 
-          props.books.map((book) => {
+        {state.books.length > 0 ? 
+          state.books.map((book) => {
             return (
               <TableRow key={book._id}>
               <TableCell component="th" scope="row" align="center">{book.title}</TableCell>
@@ -76,8 +94,8 @@ export default function SimpleTable(props) {
         </TableRow>
       </TableHead>
       <TableBody>
-      {props.videos.length > 0 ? 
-        props.videos.map((video, index) => {
+      {state.videos.length > 0 ? 
+        state.videos.map((video, index) => {
           return (
             <TableRow key={index} data-id={index}>
             <TableCell component="th" scope="row" align="center">{video.title}</TableCell>

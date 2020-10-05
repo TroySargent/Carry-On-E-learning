@@ -1,29 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import SavedTable from '../components/SavedTable';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import API from '../utils/API';
 
-export default function App() {
-  const [state, setState] = useState({
-    books: [],
-    videos: []
-  });
 
-  useEffect(
-    () => {
-      async function fetchData() {
-        const bookResponse = await API.getSavedBooks();
-        const videoResponse = await API.getSavedVideos();
-        console.log(videoResponse)
-        setState({videos: videoResponse.videos, books: bookResponse.books });
+export default function Saved() {
 
-      }
-      fetchData()
-    }
-  ,[]);
 
 
   return (
@@ -37,8 +21,6 @@ export default function App() {
       </AppBar>
     <Container>
       <SavedTable
-      books={state.books}
-      videos={state.videos}
       >
       </SavedTable>
     </Container>
