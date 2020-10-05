@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from "../Title/Title";
 import Saved from "../../SavedTable"
@@ -16,17 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Orders() {
+export default function SavedResources() {
   const classes = useStyles();
   return (
     <React.Fragment>
       <Title>Tasks</Title> 
       <Saved></Saved>
-      <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          See all tasks
-        </Link>
-      </div>
     </React.Fragment>
   );
 }

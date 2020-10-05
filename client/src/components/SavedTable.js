@@ -105,6 +105,7 @@ export default function SimpleTable() {
             return (
               <TableRow key={book._id}
               style={{textDecoration: book.completed ? "line-through": ""}}
+              style={{backgroundColor: book.overdue ? "#fd7b7f":""}}
               >
               <TableCell component="th" scope="row" align="center">{book.title}</TableCell>
               <TableCell align="center">{book.authors ? book.authors.join(", ") : "No author listed"}</TableCell>
@@ -153,7 +154,7 @@ export default function SimpleTable() {
           return (
             <TableRow key={index} 
             style={{textDecoration: video.completed ? "line-through": ""}}
-            >
+            TableRow key={index} data-id={index} style={{backgroundColor: video.overdue ? "#fd7b7f":""}}>
             <TableCell component="th" scope="row" align="center">{video.title}</TableCell>
             <TableCell align="center">{video.channelTitle}</TableCell>
             <TableCell align="center">{video.description}</TableCell>
