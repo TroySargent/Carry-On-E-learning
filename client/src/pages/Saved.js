@@ -12,7 +12,7 @@ export default function Saved() {
 
   return (
     <>
-    <AppBar position="static" style={{"background-color":"orange"}}>
+    <AppBar position="static" style={{"backgroundColor":"orange"}}>
         <Toolbar style={{"margin":"0 auto", }}>
           <Typography variant="h6" noWrap>
             Saved

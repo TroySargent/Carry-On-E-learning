@@ -56,6 +56,28 @@ UserSchema.virtual('activeBooks',{
   match: { targetDate : {$gt : Date.now()}},
 })
 
+UserSchema.virtual('completedVideoCount',{
+  ref:"Video",
+  localField: "videos",
+  foreignField:"_id",
+  match: { completed: true},
+  count: true
+})
+
+UserSchema.virtual('overdueVideos',{
+  ref:"Video",
+  localField: "videos",
+  foreignField:"_id",
+  match: { targetDate : {$lt : Date.now()}},
+})
+
+UserSchema.virtual('activeVideos',{
+  ref:"Video",
+  localField: "videos",
+  foreignField:"_id",
+  match: { targetDate : {$gt : Date.now()}},
+})
+
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;

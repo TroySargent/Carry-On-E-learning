@@ -8,7 +8,7 @@ const bookSchema = new Schema({
   image: String,
   link: String,
   targetDate: {type: Date, default: new Date().setDate(new Date().getDate()+21)},
-  completed: {type: Boolean, default: true},
+  completed: {type: Boolean, default: false},
 }, { toJSON: { virtuals: true } });
 
 bookSchema.virtual("overdue").get(function () {

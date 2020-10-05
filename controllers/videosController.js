@@ -6,6 +6,9 @@ module.exports = {
     db.User
       .findOne({googleId: req.user.googleId})
       .populate("videos")
+      .populate("completedVideoCount")
+      .populate("overdueVideos")
+      .populate("activeVideos")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
