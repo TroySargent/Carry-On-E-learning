@@ -57,7 +57,7 @@ export default function SimpleTable() {
         {state.books.length > 0 ? 
           state.books.map((book) => {
             return (
-              <TableRow key={book._id}>
+              <TableRow key={book._id} style={{backgroundColor: book.overdue ? "#fd7b7f":""}}>
               <TableCell component="th" scope="row" align="center">{book.title}</TableCell>
               <TableCell align="center">{book.authors ? book.authors.join(", ") : "No author listed"}</TableCell>
               <TableCell align="center">{book.description}</TableCell>
@@ -97,7 +97,7 @@ export default function SimpleTable() {
       {state.videos.length > 0 ? 
         state.videos.map((video, index) => {
           return (
-            <TableRow key={index} data-id={index}>
+            <TableRow key={index} data-id={index} style={{backgroundColor: video.overdue ? "#fd7b7f":""}}>
             <TableCell component="th" scope="row" align="center">{video.title}</TableCell>
             <TableCell align="center">{video.channelTitle}</TableCell>
             <TableCell align="center">{video.description}</TableCell>
