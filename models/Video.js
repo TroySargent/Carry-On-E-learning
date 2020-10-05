@@ -7,7 +7,7 @@ const videoSchema = new Schema({
   description: String, 
   url: String,
   targetDate: {type: Date, default: new Date().setDate(new Date().getDate()+21)},
-  completed: {type: Boolean, default: true},
+  completed: {type: Boolean, default: false},
 }, { toJSON: { virtuals: true } });
 
 videoSchema.virtual("overdue").get(function () {
